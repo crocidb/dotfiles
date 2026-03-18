@@ -9,7 +9,11 @@ vim.g.maplocalleader = ","
 map("v", ".", '"_d".P', { desc = "Replace selection with last insertion" })
 map("v", "<leader>fz", "<cmd>lua LiveGrepVisual()<CR> ", { noremap = true, silent = true })
 map("n", "<leader>fw", "<cmd>lua LiveGrepCurrentWord()<CR>", { noremap = true, silent = true })
+
 map("n", "<leader>tx", ":tabclose<CR>", { noremap = true, silent = true })
+map("n", "<leader>tn", ":tabnext<CR>", { noremap = true, silent = true })
+map("n", "<leader>tp", ":tabprevious<CR>", { noremap = true, silent = true })
+map("n", "<leader>tc", ":tabnew<CR>", { noremap = true, silent = true })
 
 -- Telescope
 map("n", "<leader>fz", "<cmd> Telescope live_grep<CR>", { noremap = true, silent = true })
