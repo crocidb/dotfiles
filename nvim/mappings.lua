@@ -4,6 +4,7 @@ require("nvchad.mappings")
 vim.api.nvim_del_keymap("n", "<leader>fz")
 local map = vim.keymap.set
 vim.g.maplocalleader = ","
+vim.opt.clipboard = "unnamedplus"
 
 -- Misc
 map("v", ".", '"_d".P', { desc = "Replace selection with last insertion" })
