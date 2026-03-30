@@ -17,7 +17,7 @@ M.ui = {
 }
 
 M.base46 = {
-	theme = "chocolate",
+	theme = "ashes",
 	-- transparency = true,
 
 	-- hl_override = {
