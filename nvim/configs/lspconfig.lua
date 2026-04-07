@@ -10,6 +10,9 @@ vim.lsp.enable("ty")
 vim.lsp.enable("gdscript")
 vim.lsp.enable("racket_langserver")
 vim.lsp.enable("glsl_analyzer")
+vim.lsp.config("harper_ls", {
+	filetypes = { "markdown", "text" },
+})
 vim.lsp.enable("harper_ls")
 
 -- Diagnostics
