@@ -5,11 +5,12 @@ vim.lsp.enable("ts_ls")
 vim.lsp.enable("clangd")
 vim.lsp.enable("html")
 vim.lsp.enable("cssls")
--- vim.lsp.enable("pyright")
 vim.lsp.enable("ty")
 vim.lsp.enable("gdscript")
+vim.lsp.enable("fennel_ls")
 vim.lsp.enable("racket_langserver")
 vim.lsp.enable("glsl_analyzer")
+
 vim.lsp.config("harper_ls", {
 	filetypes = { "markdown", "text" },
 })
