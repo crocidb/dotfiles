@@ -35,6 +35,10 @@
       :desc "Toggle comment"                     "/"   #'+my/comment-dwim
       :desc "Close buffer"                       "x"   #'kill-current-buffer)
 
+(map! :leader "g r" nil)
+(map! :leader
+      :desc "Find references"                    "g r r" #'+lookup/references)
+
 (map! :n "{" #'better-jumper-jump-backward
       :n "}" #'better-jumper-jump-forward)
 (map! :n "(" #'+evil/previous-beginning-of-method
@@ -88,4 +92,9 @@
   :config
   (require 'copilot-chat-markdown)
   (setq copilot-chat-frontend 'markdown))
+
+(use-package! wakatime-mode
+  :hook (after-init . global-wakatime-mode)
+  :config
+  (setq wakatime-cli-path (expand-file-name "~/.wakatime/wakatime-cli")))
 

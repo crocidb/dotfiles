@@ -54,3 +54,4 @@
 ;; (unpin! t)
 
 (package! copilot-chat)
+(package! wakatime-mode)
