@@ -39,6 +39,9 @@
 (map! :leader
       :desc "Find references"                    "g r r" #'+lookup/references)
 
+(map! :nv "g j" #'evil-next-visual-line
+      :nv "g k" #'evil-previous-visual-line)
+
 (map! :n "{" #'better-jumper-jump-backward
       :n "}" #'better-jumper-jump-forward)
 (map! :n "(" #'+evil/previous-beginning-of-method
