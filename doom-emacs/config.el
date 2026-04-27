@@ -6,7 +6,7 @@
 
 ;; APPEARANCE
 (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 14 :weight 'semi-light))
-(setq doom-theme 'doom-tomorrow-night)
+(setq doom-theme 'doom-1337)
 (setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -21,6 +21,24 @@
   (if (or (use-region-p) (evil-visual-state-p))
       (comment-or-uncomment-region (region-beginning) (region-end))
     (comment-or-uncomment-region (line-beginning-position) (line-end-position))))
+
+(defun +my/opencode-send-region-with-prompt ()
+  "Prompt for input and send it with the active region as context to opencode."
+  (interactive)
+  (unless (use-region-p)
+    (user-error "No active region"))
+  (let ((region (buffer-substring-no-properties (region-beginning) (region-end)))
+        (prompt (read-string "OpenCode: ")))
+    (with-last-opencode-session
+     (opencode-api-send-message (opencode-session-id)
+                                `((agent . ,(alist-get 'name opencode-session-agent))
+                                  ,(assoc 'model opencode-session-agent)
+                                  (variant . ,(or opencode-session-variant ""))
+                                  (parts . (((type . text) (text . ,prompt))
+                                            ((type . text) (text . ,(concat "<region>" region "</region>"))
+                                             (synthetic . t)
+                                             (metadata . ((region-id . ,(gensym))))))))
+                                _result))))
 
 
 ;; MAPS
@@ -60,6 +78,9 @@
       :gnvim "C-k" #'evil-window-up
       :gnvim "C-l" #'evil-window-right)
 
+(map! :g "M-p" #'opencode
+      :g "M-m" #'+my/opencode-send-region-with-prompt)
+
 (define-key evil-normal-state-map (kbd "J") nil)
 
 (setq-default
@@ -88,16 +109,11 @@
               (doom-save-session +my/startup-session-file))))
 
 ;; PLUGIN SETUP
-(use-package! copilot-chat
-  :commands (copilot-chat copilot-chat-display)
-  :init
-  (map! :g "M-p" #'copilot-chat-display)
-  :config
-  (require 'copilot-chat-markdown)
-  (setq copilot-chat-frontend 'markdown))
+(add-to-list 'display-buffer-alist
+             '("\\*OpenCode" (display-buffer-reuse-window display-buffer-pop-up-window)))
 
 (use-package! wakatime-mode
+  :when (file-directory-p "~/.wakatime")
   :hook (after-init . global-wakatime-mode)
   :config
   (setq wakatime-cli-path (expand-file-name "~/.wakatime/wakatime-cli")))
-

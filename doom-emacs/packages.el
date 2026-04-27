@@ -53,5 +53,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 
-(package! copilot-chat)
 (package! wakatime-mode)
+
+(package! opencode
+  :recipe (:host codeberg :repo "sczi/opencode.el"))
