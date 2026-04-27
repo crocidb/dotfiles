@@ -1,0 +1,10 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- link:
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/ghostty/ghostty: ghostty/ghostty.conf
+    ~/.config/doom: doom-emacs
+    ~/.config/nvim/lua: nvim

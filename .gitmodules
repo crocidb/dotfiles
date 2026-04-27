@@ -1,3 +1,7 @@
 [submodule "tpm-redux"]
 	path = tpm-redux
 	url = https://github.com/RyanMacG/tpm-redux.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
