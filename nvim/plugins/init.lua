@@ -60,26 +60,6 @@ local plugins = {
 		end,
 	},
 	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("configs.copilot")
-		end,
-	},
-	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		lazy = false,
-		branch = "main",
-		dependencies = {
-			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-		},
-		opts = function()
-			return require("configs.copilotchat")
-		end,
-		-- See Commands section for default commands if you want to lazy load on them
-	},
-	{
 		"folke/trouble.nvim",
 		opts = require("configs.trouble"),
 		cmd = "Trouble",

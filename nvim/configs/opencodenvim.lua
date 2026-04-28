@@ -19,7 +19,7 @@ vim.keymap.set({ "n", "x" }, "<M-O>", function()
 	require("opencode").select()
 end, { desc = "Execute opencode action…" })
 
-vim.keymap.set({ "n", "t" }, "<M-o>", function()
+vim.keymap.set({ "n", "t" }, "<M-p>", function()
 	require("opencode").toggle()
 end, { desc = "Toggle opencode" })
 
