@@ -3,6 +3,7 @@
       user-mail-address "bruno@croci.me")
 
 (setq confirm-kill-emacs nil)
+(setq select-enable-clipboard t)
 
 ;; APPEARANCE
 (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 14 :weight 'semi-light))
@@ -86,6 +87,7 @@
 (setq-default
  save-interrupted-sessions t
  +workspaces-on-switch-project-behavior 'load)
+
 
 ;; Per-directory session persistence: `emacs .` in a folder restores the last
 ;; session saved for that folder.
