@@ -3,7 +3,6 @@ require("nvchad.mappings")
 -- Maps
 vim.api.nvim_del_keymap("n", "<leader>fz")
 local map = vim.keymap.set
-vim.g.maplocalleader = ","
 vim.opt.clipboard = "unnamedplus"
 
 -- Misc
