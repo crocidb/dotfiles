@@ -73,28 +73,6 @@ map("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>")
 
 
 -- Some auxiliary functions
-function CopilotChatActions()
-	local actions = require("CopilotChat.actions")
-	require("CopilotChat.integrations.telescope").pick(actions.prompt_actions(), { previewer = false })
-end
-
-function CopilotChatQuickPrompt()
-	local prompt = vim.fn.input("Ask Copilot: ")
-	if prompt ~= "" then
-		local chat = require("CopilotChat")
-		chat.ask(prompt, {
-			selection = function(source)
-				local select = require("CopilotChat.select")
-				return select.visual(source) or select.buffer(source)
-			end,
-			context = { "buffers", "files" },
-			callback = function(response)
-				print("Response:", response)
-			end,
-		})
-	end
-end
-
 function VirtualLineToggle()
 	local current_config = vim.diagnostic.config()
 	local new_virtual_lines_state
