@@ -38,7 +38,7 @@ map("n", ")", "]m")
 map("v", "<A-S-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 map("v", "<A-S-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
-map("n", "bv", "f{%V%", { noremap = true, desc = "select whole block ahead with this line" })
+map("n", "<leader>bv", "f{%V%", { noremap = true, desc = "select whole block ahead with this line" })
 
 -- LSP/Format
 map("n", "<leader>fm", "<cmd> lua require('conform').format() <CR>", { desc = "Format file with Formatter" })
