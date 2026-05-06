@@ -12,18 +12,17 @@ local opts = {
 		stop = "<M-s>",
 		toggle = {
 			diff = "<M-d>",
-			hint = "<M-h>",
 			suggestion = "<M-c>",
 			repomap = "<M-R>",
 		},
-		select_model = "<M-m>",
 		select_history = "<M-H>",
+		select_acp_model = "<M-m>",
 	},
 
 	acp_providers = {
 		["opencode"] = {
 			command = "opencode",
-			args = { "acp" },
+			args = { "acp", "-m", "opencode-go/mimo-v2.5-pro" },
 			env = {
 				OPENCODE_API_KEY = os.getenv("OPENCODE_API_KEY"),
 			},
