@@ -65,7 +65,8 @@
       :n "}" #'better-jumper-jump-forward)
 (map! :n "(" #'+evil/previous-beginning-of-method
       :n ")" #'+evil/next-beginning-of-method)
-(map! :n "<tab>"   (cmd! (call-interactively (key-binding (kbd "g t"))))
+(map! :n "TAB"      (cmd! (call-interactively (key-binding (kbd "g t"))))
+      :n "<tab>"    (cmd! (call-interactively (key-binding (kbd "g t"))))
       :n "<backtab>" (cmd! (call-interactively (key-binding (kbd "g T")))))
 (map! :g "M-1" (cmd! (+workspace/switch-to 0))
       :g "M-2" (cmd! (+workspace/switch-to 1))
