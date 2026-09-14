@@ -59,3 +59,6 @@
 
 (package! opencode
   :recipe (:host codeberg :repo "sczi/opencode.el"))
+
+(package! obsidian
+  :recipe (:host github :repo "licht1stein/obsidian.el"))

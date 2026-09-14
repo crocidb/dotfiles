@@ -81,7 +81,20 @@
       :gnvim "C-l" #'evil-window-right)
 
 (map! :g "M-p" #'opencode
-      :g "M-m" #'+my/opencode-send-region-with-prompt)
+      :g "M-m" #'+my/opencode-send-region-with-prompt
+      ;; Switch Centaur Tabs with Ctrl+Tab, including Evil insert/visual states.
+      :g  [C-tab]          #'+tabs:next-or-goto
+      :g  [C-S-tab]        #'+tabs:previous-or-goto
+      :g  [C-S-backtab]    #'+tabs:previous-or-goto
+      :g  [C-S-iso-lefttab] #'+tabs:previous-or-goto
+      :i  [C-tab]          #'+tabs:next-or-goto
+      :i  [C-S-tab]        #'+tabs:previous-or-goto
+      :i  [C-S-backtab]    #'+tabs:previous-or-goto
+      :i  [C-S-iso-lefttab] #'+tabs:previous-or-goto
+      :nv [C-tab]          #'+tabs:next-or-goto
+      :nv [C-S-tab]        #'+tabs:previous-or-goto
+      :nv [C-S-backtab]    #'+tabs:previous-or-goto
+      :nv [C-S-iso-lefttab] #'+tabs:previous-or-goto)
 
 (define-key evil-normal-state-map (kbd "J") nil)
 
@@ -120,3 +133,21 @@
   :hook (after-init . global-wakatime-mode)
   :config
   (setq wakatime-cli-path (expand-file-name "~/.wakatime/wakatime-cli")))
+
+(use-package! obsidian
+  :custom
+  ;; `obsidian.el` supports one active vault at a time.  Use
+  ;; `M-x obsidian-change-vault` to switch to ~/Projects/devnotes.
+  (obsidian-directory (expand-file-name "~/Projects/devnotes/"))
+  ;; Keep new notes in the vault root until an inbox directory is needed.
+  (obsidian-inbox-directory nil)
+  (markdown-enable-wiki-links t)
+  :config
+  (global-obsidian-mode 1)
+  (obsidian-backlinks-mode 1)
+  :bind (:map obsidian-mode-map
+              ("C-c C-n" . obsidian-capture)
+              ("C-c C-l" . obsidian-insert-link)
+              ("C-c C-o" . obsidian-follow-link-at-point)
+              ("C-c C-p" . obsidian-jump)
+              ("C-c C-b" . obsidian-backlink-jump)))
