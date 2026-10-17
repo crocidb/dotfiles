@@ -2,6 +2,13 @@ return {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
 
+  git = {
+    -- Seconds before lazy kills a process. This is also the timeout for
+    -- plugin `build` commands, and avante.nvim's `make` compiles several
+    -- Rust crates, which easily exceeds the 120s default. 20 minutes.
+    timeout = 1200,
+  },
+
   ui = {
     icons = {
       ft = "",
