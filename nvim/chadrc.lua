@@ -18,7 +18,7 @@ M.ui = {
 
 M.base46 = {
 	theme = "tomorrow_night",
-	-- transparency = true,
+	transparency = true,
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
