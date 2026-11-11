@@ -38,14 +38,14 @@ end
 -- Motions
 map("v", "//", [[y/\V<C-R>=escape(@", '/\')<CR><CR>]], { noremap = true, silent = true })
 map("n", "//", [[:let @/='\V' . escape(expand('<cword>'), '/\')<CR>n]], { noremap = true, silent = true })
-map("n", "{", "<C-O>")
-map("n", "}", "<C-I>")
 map("n", "(", "[m")
 map("n", ")", "]m")
 map("v", "<A-S-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 map("v", "<A-S-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 map("n", "<leader>bv", "f{%V%", { noremap = true, desc = "select whole block ahead with this line" })
+map("n", "[c", ":Gitsigns prev_hunk<CR>")
+map("n", "]c", ":Gitsigns next_hunk<CR>")
 
 -- LSP/Format
 if vim.g.nvim_mode == "dev" then
